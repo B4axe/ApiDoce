@@ -13,17 +13,27 @@ public class ProductEntity {
     private String category;
     private String description;
     private int stock;
+    private String image;
 
     public ProductEntity() {
     }
 
-    public ProductEntity(String id, double price, String name, String category, String description, int stock) {
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public ProductEntity(String id, double price, String name, String category, String description, int stock, String image) {
         this.id = id;
         this.price = price;
         this.name = name;
         this.category = category;
         this.description = description;
         this.stock = stock;
+        this.image =image;
     }
 
     public String getId() {
