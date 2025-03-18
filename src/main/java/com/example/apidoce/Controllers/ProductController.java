@@ -61,7 +61,7 @@ public class ProductController {
             )
     )
     @PostMapping("/insert")
-    public ProductEntity insertPost(@RequestBody ProductEntity product) {
+    public ProductEntity insertProduct(@RequestBody ProductEntity product) {
 
         return service.insert(product);
     }
