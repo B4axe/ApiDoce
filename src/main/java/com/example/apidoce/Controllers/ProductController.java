@@ -97,4 +97,22 @@ public class ProductController {
         return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
     }
 
+    @Operation(
+            summary = "Busca produtos por categoria",
+            description = "Retorna uma lista de produtos filtrados pela categoria especificada na URL."
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Produtos retornados com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Nenhum produto encontrado para essa categoria"),
+            @ApiResponse(responseCode = "500", description = "Erro interno no servidor")
+    })
+    @GetMapping("/category/{category}")
+    public ResponseEntity<List<ProductEntity>> getByCategory(@PathVariable String category) {
+        List<ProductEntity> products = service.findByCategory(category);
+        if (products.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+
 }

@@ -37,4 +37,8 @@ public class ProductService {
     }
 
 
+    public List<ProductEntity> findByCategory(String category) {
+        return repository.findByCategoryIgnoreCase(category);
+    }
+
 }
