@@ -20,7 +20,7 @@ public class CartController {
     private CartService cartService;
 
     @Operation(summary = "Adicionar o produto no carrinho")
-    @PostMapping("/{cartId}/add-item")
+    @PostMapping(value = "/{cartId}/add-item")
     public ResponseEntity<?> addItem(@PathVariable String cartId, @RequestBody ItemEntity item) {
         try {
             CartEntity updatedCart = cartService.addItemToCart(cartId, item);
